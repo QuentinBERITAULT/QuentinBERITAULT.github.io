@@ -33,22 +33,23 @@ function getLongitude(){
 
 // API Web History
 
-var h = document.getElementById("nbpages").value;
 let bouttonhistory = document.getElementById("reculer");
 
 bouttonhistory.addEventListener('click', getWebHistory);
 
 function getWebHistory(){
-    window.history.go(h*-1);
+    let h = document.getElementById("nbpages").value;
+    window.history.go(-h);
 }
 
 // API Clipboard
 
-let texte = document.getElementById("textecopie").value;
 let bouttoncopie = document.getElementById("copier");
 
 bouttoncopie.addEventListener('click', getTexteCopie);
 
 function getTexteCopie(){
+    let texte = document.getElementById("textecopie").value;
     navigator.clipboard.writeText(texte);
+    alert("Le texte est bien copié !")
 }
