@@ -44,12 +44,24 @@ function getWebHistory(){
 
 // API Clipboard
 
+    // Copier    
+
 let bouttoncopie = document.getElementById("copier");
 
 bouttoncopie.addEventListener('click', getTexteCopie);
 
 function getTexteCopie(){
-    let texte = document.getElementById("textecopie").value;
-    navigator.clipboard.writeText(texte);
+    let textecopier = document.getElementById("textecopie").value;
+    navigator.clipboard.writeText(textecopier);
     alert("Le texte est bien copié !")
+}
+
+    // Coller
+
+let bouttoncoller = document.getElementById("coller");
+
+bouttoncoller.addEventListener('click', getTexteColler);
+
+function getTexteColler(){
+    navigator.clipboard.readText().then(clipText => document.getElementById("textecolle").value = clipText);
 }
